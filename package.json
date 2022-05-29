@@ -34,7 +34,6 @@
     "multer": "^1.4.4",
     "nodemailer": "^6.7.2",
     "nodemailer-mailgun-transport": "^2.1.4",
-    "parcel": "^2.6.0",
     "prettier-plugin-pug": "^1.0.0-alpha.8",
     "pug": "^3.0.2",
     "sharp": "^0.30.4",
