@@ -1,0 +1,49 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "Learning node, express and mongoDB",
+  "main": "app.js",
+  "scripts": {
+    "pug-prettier": "npx prettier --write **/*.pug",
+    "start-pm2": "pm2 start ./back-end/app.js --watch --ignore-watch='node_modules' --attach --no-autorestart",
+    "stop-pm2": "pm2 delete all",
+    "test-pm2": "pm2 monit",
+    "start-nodemon:dev": "SET NODE_ENV=development&&nodemon ./back-end/server.js --experimental-fetch --trace-warnings",
+    "debug": "ndb server.js",
+    "start-nodemon:prod": "SET NODE_ENV=production&&nodemon ./back-end/server.js --experimental-fetch --trace-warnings"
+  },
+  "author": "Darius Bogdan",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^6.3.0",
+    "helmet": "^5.0.2",
+    "hpp": "^0.2.3",
+    "html-to-text": "^8.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mailgun.js": "^7.0.0",
+    "mongoose": "^6.2.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4",
+    "nodemailer": "^6.7.2",
+    "nodemailer-mailgun-transport": "^2.1.4",
+    "prettier-plugin-pug": "^1.0.0-alpha.8",
+    "pug": "^3.0.2",
+    "sharp": "^0.30.4",
+    "sib-api-v3-sdk": "^8.3.0",
+    "slugify": "^1.6.5",
+    "stripe": "^9.4.0",
+    "twilio": "^3.76.1",
+    "validator": "^13.7.0",
+    "xss-clean": "^0.1.1"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.2"
+  }
+}
