@@ -156,7 +156,7 @@ tourSchema.pre('save', async function (next) {
     const buffer = Buffer.from(
       await fs.readFile(`front-end/public/img/tours/${this.imageCover}`)
     );
-    console.log(buffer);
+    //console.log(buffer);
     const imageBuffer = await modifyImageSizes(
       buffer,
       `front-end/public/img/contains_icon_images/icon-${this.slug}.jpeg`,

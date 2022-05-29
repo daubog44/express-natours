@@ -19,7 +19,7 @@ const verify = async function () {
       location.assign('/me');
     }, 1500);
   } catch (e) {
-    console.log(e);
+    //console.log(e);
     return showAlert('error', e.message);
   }
 };

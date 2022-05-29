@@ -47,7 +47,7 @@ exports.resizeUserPhoto = catchAsync(async function (req, res, next) {
   if (!req.file) return next();
   req.file.filename = `user-${req.user.id}-${Date.now()}.jpeg`;
 
-  console.log(typeof req.file.buffer);
+  //console.log(typeof req.file.buffer);
   await modifyImageSizes(
     req.file.buffer,
     `front-end/public/img/users/${req.file.filename}`,
@@ -98,7 +98,7 @@ exports.setId = function (req, res, next) {
 
 exports.sendEmailForNotificationChange = catchAsync(async (req, res, next) => {
   const message = `Hello, you have changed your email of Natours!`;
-  console.log('email changed!');
+  //console.log('email changed!');
   try {
     await sendEmail({
       email: req.body.email,

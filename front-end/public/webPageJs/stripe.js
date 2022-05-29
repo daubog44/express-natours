@@ -14,10 +14,10 @@ const bookTour = async function (id) {
       }
     );
     const data = await res.json();
-    console.log(data);
+    //console.log(data);
     alertBookingSucces(data);
   } catch (error) {
-    console.error(err);
+    //console.error(err);
     showAlert('error', 'error with request! ' + err.message);
   }
 };

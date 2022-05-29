@@ -8,7 +8,7 @@ const host = currentScriptJs.getAttribute('host');
 
 const logout = async function () {
   try {
-    console.log('helloo');
+    //console.log('helloo');
     const res = await fetch(`${protocol}://${host}/api/v1/users/logout`, {
       method: 'GET',
       headers: {
@@ -24,7 +24,7 @@ const logout = async function () {
         location.assign('/');
       }, 1500);
   } catch (err) {
-    console.log(err);
+    //console.log(err);
     showAlert('error', 'Error loggin out, try again!');
   }
 };

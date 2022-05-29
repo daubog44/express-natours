@@ -9,6 +9,7 @@ const mongoSanitizer = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 const globalErrorHandler = require(`./controllers/errorController`);
 const tourRouter = require('./routes/tourRoutes');
@@ -99,6 +100,7 @@ app.use(
   })
 );
 
+app.use(compression());
 // test middleware
 app.use(function (req, res, next) {
   req.requestTime = new Date().toISOString();

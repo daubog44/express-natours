@@ -4,7 +4,9 @@
   "description": "Learning node, express and mongoDB",
   "main": "app.js",
   "scripts": {
+    "start": "node server.js",
     "pug-prettier": "npx prettier --write **/*.pug",
+    "parcel": "parcel watch ./front-end/public/webPageJs",
     "start-pm2": "pm2 start ./back-end/app.js --watch --ignore-watch='node_modules' --attach --no-autorestart",
     "stop-pm2": "pm2 delete all",
     "test-pm2": "pm2 monit",
@@ -16,6 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
@@ -31,6 +34,7 @@
     "multer": "^1.4.4",
     "nodemailer": "^6.7.2",
     "nodemailer-mailgun-transport": "^2.1.4",
+    "parcel": "^2.6.0",
     "prettier-plugin-pug": "^1.0.0-alpha.8",
     "pug": "^3.0.2",
     "sharp": "^0.30.4",
@@ -45,5 +49,8 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.6.2"
+  },
+  "engines": {
+    "node": ">=8.0.0"
   }
 }

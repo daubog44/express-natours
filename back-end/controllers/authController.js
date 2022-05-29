@@ -139,7 +139,7 @@ exports.twoFactorAuthentication = catchAsync(async (req, res, next) => {
     process.env.SECRET_FOR_DECODE_NUMBER
   );
 
-  console.log(decoded);
+  //.log(decoded);
 
   const user = await User.findById(req.params.id);
 
@@ -328,7 +328,7 @@ exports.sendEmailForVarification = catchAsync(async function (req, res, next) {
     user.verifyEmailToken = undefined;
     user.verifyEmailTokenExpires = undefined;
     await user.save({ validateBeforeSave: false });
-    console.log(err);
+    //console.log(err);
 
     return next(
       new AppError('There was an error sanding your email. Try again later.'),

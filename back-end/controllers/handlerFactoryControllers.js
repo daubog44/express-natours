@@ -55,7 +55,7 @@ exports.getOne = (Model, popOptions) =>
   catchAsync(async (req, res, next) => {
     let filter = { verifyEmailToken: undefined };
 
-    console.log(req.params.id, Model);
+    //console.log(req.params.id, Model);
     let query = Model.find({ _id: req.params.id, ...filter });
     if (popOptions) query = query.populate(popOptions);
     const document = await query;

@@ -39,7 +39,7 @@ const alertLoginSucced = function (data) {
 };
 
 const login = async function (email, password) {
-  console.log(email, password);
+  //console.log(email, password);
   try {
     const res = await fetch(`${protocol}://${host}/api/v1/users/login`, {
       method: 'POST',
@@ -50,7 +50,7 @@ const login = async function (email, password) {
       },
     });
 
-    console.log(res);
+    //console.log(res);
 
     if (res.statusText === 'Unauthorized') {
       throw await res.json();
@@ -88,7 +88,7 @@ const login = async function (email, password) {
 
     alertLoginSucced(dataResult);
   } catch (err) {
-    console.error(err);
+    //console.error(err);
     showAlert('error', 'error with request! ' + err.message);
   }
 };

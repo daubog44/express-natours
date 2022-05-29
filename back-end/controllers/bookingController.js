@@ -39,12 +39,12 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
 exports.createBookingCheckOut = catchAsync(async (req, res, next) => {
   //! this is only TEMPORARY, because it's UNSECURE: everyone can make bookings without paying
   const { tour, user, price } = req.query;
-  console.log(tour, user, price, req.query);
+  //console.log(tour, user, price, req.query);
 
   if (!tour && !user && !price) return next();
   await Booking.create({ tour, user, price });
 
-  console.log(req.originalUrl.split('?')[0]);
+  //console.log(req.originalUrl.split('?')[0]);
 
   res.redirect(req.originalUrl.split('?')[0]);
 });
@@ -53,7 +53,7 @@ exports.isPaidInTourLeadGuide = catchAsync(async (req, res, next) => {
   const booking = await Booking.findById(req.params.id);
   const tour = await Tour.findById(booking.tour).select('+leadGuide');
   const leadGuide = tour.leadGuide;
-  console.log(req.user.id, leadGuide);
+  //console.log(req.user.id, leadGuide);
 
   if (leadGuide != req.user.id && req.user.role !== 'admin') {
     return next(

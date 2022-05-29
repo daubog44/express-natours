@@ -42,7 +42,7 @@ const updateSettings = async function (data, type) {
 
     throw await res.json();
   } catch (e) {
-    console.log(e);
+    //console.log(e);
     return showAlert('error', e.message);
   }
 };
@@ -55,7 +55,7 @@ const getMyPhoto = async function (id) {
     let data = await res.json();
     return data.data[0].photo;
   } catch (e) {
-    console.log(e);
+    //console.log(e);
     return showAlert('error', e.message);
   }
 };
@@ -130,7 +130,7 @@ const toggleTwoFactorAuth = async function (toggle, number) {
 
     throw await res.json();
   } catch (e) {
-    console.log(e);
+    //console.log(e);
     showAlert('error', e.message);
     return 'error';
   }

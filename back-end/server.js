@@ -16,7 +16,7 @@ const url = process.env.DATABASE_URL.replace(
   `${process.env.USERNAME_DB}`
 ).replace('<password>', `${process.env.PASSWORD_DB}`);
 
-console.log(url);
+//console.log(url);
 
 const options = {
   useNewUrlParser: true,
