@@ -4,7 +4,7 @@
   "description": "Learning node, express and mongoDB",
   "main": "app.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node ./back-end/server.js --experimental-fetch --trace-warnings",
     "pug-prettier": "npx prettier --write **/*.pug",
     "parcel": "parcel watch ./front-end/public/webPageJs",
     "start-pm2": "pm2 start ./back-end/app.js --watch --ignore-watch='node_modules' --attach --no-autorestart",
