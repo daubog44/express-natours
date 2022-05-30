@@ -25,8 +25,8 @@ const app = express();
 
 // web page
 app.set('view engine', 'pug');
-app.set('views', path.resolve('./../starter/front-end/views'));
-app.use(express.static(path.resolve('./../starter/front-end/public')));
+app.set('views', path.resolve(`${__dirname}/../front-end/views`));
+app.use(express.static(path.resolve(`${__dirname}/../front-end/public`)));
 
 // GLOBAL MIDDLEWERE
 // set secure http headers
