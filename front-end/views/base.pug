@@ -3,7 +3,7 @@ html
   head
     //- prettier-ignore
     meta(charset='UTF-8')
-    //-<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;**script-src 'self' http://onlineerp.solution.quebec 'unsafe-inline' 'unsafe-eval';** ">
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors'self';block-all-mixed-content;default-src 'self';script-src 'self' 'report-sample';style-src 'self' 'report-sample' 'unsafe-inline' fonts.googleapis.com;object-src 'none';frame-src 'self';child-src 'self';img-src 'self' fonts.gstatic.com;font-src 'self' fonts.googleapis.com fonts.gstatic.com;connect-src 'self' fonts.googleapis.com fonts.gstatic.com;manifest-src 'self';base-uri 'self';form-action 'self';media-src 'self';prefetch-src 'self';worker-src 'self';">
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='/css/style.css')
     link(rel='shortcut icon', type='/image/png', href='/img/favicon.png')
