@@ -32,11 +32,11 @@ app.use(express.static(path.resolve(`${__dirname}/../front-end/public`)));
 // GLOBAL MIDDLEWERE
 // implement cors
 app.use(cors());
-app.use(
-  cors({
-    origin: `https://vast-refuge-16787.herokuapp.com/`,
-  })
-);
+//app.use(
+//  cors({
+//    origin: `https://vast-refuge-16787.herokuapp.com/`,
+//  })
+//);
 app.options('*', cors());
 
 // set secure http headers
