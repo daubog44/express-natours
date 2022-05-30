@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
-const modifyImageSizes = require('./../utilitis/modifyImageSize');
-const generateImageUrl = require('./../utilitis/genereteImageUrl.js');
+const modifyImageSizes = require('../utilitis/modifyImageSize');
+const generateImageUrl = require('../utilitis/genereteImageUrl.js');
 const fs = require('fs').promises;
 
 //! CHECK VALIDATOR NPM https://www.npmjs.com/package/validator

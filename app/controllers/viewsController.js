@@ -1,6 +1,6 @@
 const AppError = require('../utilitis/appError');
-const Tour = require('./../models/tourModel');
-const catchAsync = require('./../utilitis/catchAsync');
+const Tour = require('../models/tourModel');
+const catchAsync = require('../utilitis/catchAsync');
 const User = require('../models/userModel');
 const Booking = require(`../models/bookingModel`);
 

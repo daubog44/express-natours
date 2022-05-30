@@ -1,5 +1,5 @@
 const { render } = require('pug/lib');
-const AppError = require('./../utilitis/appError');
+const AppError = require('../utilitis/appError');
 
 const handleCastErrorDB = function (err) {
   const message = `Invalid ${err.path}: ${err.value}.`;

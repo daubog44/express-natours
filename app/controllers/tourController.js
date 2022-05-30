@@ -3,8 +3,8 @@ const AppError = require('../utilitis/appError');
 const Tour = require(`../models/tourModel`);
 const factory = require('./handlerFactoryControllers');
 const multer = require('multer');
-const modifyImageSizes = require('./../utilitis/modifyImageSize');
-const generateImageUrl = require('./../utilitis/genereteImageUrl.js');
+const modifyImageSizes = require('../utilitis/modifyImageSize');
+const generateImageUrl = require('../utilitis/genereteImageUrl.js');
 
 // ROUTE HANDLER
 const multerStorage = multer.memoryStorage();

@@ -4,15 +4,15 @@
   "description": "Learning node, express and mongoDB",
   "main": "app.js",
   "scripts": {
-    "start": "node ./back-end/server.js --experimental-fetch --trace-warnings",
+    "start": "node ./app/server.js --experimental-fetch --trace-warnings",
     "pug-prettier": "npx prettier --write **/*.pug",
     "parcel": "parcel watch ./front-end/public/webPageJs",
-    "start-pm2": "pm2 start ./back-end/app.js --watch --ignore-watch='node_modules' --attach --no-autorestart",
+    "start-pm2": "pm2 start ./app/app.js --watch --ignore-watch='node_modules' --attach --no-autorestart",
     "stop-pm2": "pm2 delete all",
     "test-pm2": "pm2 monit",
-    "start-nodemon:dev": "SET NODE_ENV=development&&nodemon ./back-end/server.js --experimental-fetch --trace-warnings",
+    "start-nodemon:dev": "SET NODE_ENV=development&&nodemon ./app/server.js --experimental-fetch --trace-warnings",
     "debug": "ndb server.js",
-    "start-nodemon:prod": "SET NODE_ENV=production&&nodemon ./back-end/server.js --experimental-fetch --trace-warnings"
+    "start-nodemon:prod": "SET NODE_ENV=production&&nodemon ./app/server.js --experimental-fetch --trace-warnings"
   },
   "author": "Darius Bogdan",
   "license": "ISC",

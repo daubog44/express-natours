@@ -3,7 +3,7 @@ const catchAsync = require('../utilitis/catchAsync');
 const Tour = require(`../models/tourModel`);
 const Booking = require(`../models/bookingModel`);
 const factory = require('./handlerFactoryControllers');
-const AppError = require('./../utilitis/appError');
+const AppError = require('../utilitis/appError');
 
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   // get currently booked tour

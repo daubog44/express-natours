@@ -5,7 +5,7 @@ const factory = require('./handlerFactoryControllers');
 const sendEmail = require('../utilitis/email');
 const multer = require('multer');
 const fs = require('fs').promises;
-const modifyImageSizes = require('./../utilitis/modifyImageSize');
+const modifyImageSizes = require('../utilitis/modifyImageSize');
 
 //const multerStorage = multer.diskStorage({
 //  destination: (req, file, cb) => {
