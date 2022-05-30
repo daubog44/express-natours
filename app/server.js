@@ -11,11 +11,7 @@ process.on('uncaughtException', (err) => {
 
 const app = require('./app');
 
-const url = process.env.DATABASE_URL.replace(
-  '<username>',
-  `${process.env.USERNAME_DB}`
-).replace('<password>', `${process.env.PASSWORD_DB}`);
-
+const url = process.env.DATABASE_URL;
 //console.log(url);
 
 const options = {
@@ -28,13 +24,16 @@ mongoose
   .then(() => {
     console.log('DB connection successfully established!');
   })
-  .catch((e) => process.emit('unhandledRejection', e));
+  .catch((e) => {
+    console.log(url);
+    process.emit('unhandledRejection', e);
+  });
 
 //console.log(process.memoryUsage().heapUsed / 1024 / 1024 + ' Mgb'); //! memory used in mgb
 //console.log(process.cpuUsage());
 //console.log(process.hrtime([Date.now()]));
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 80;
 const server = app.listen(port, () => {
   console.log(`App running on port: ${port}...`);
 });
