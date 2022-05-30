@@ -10,6 +10,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 const globalErrorHandler = require(`./controllers/errorController`);
 const tourRouter = require('./routes/tourRoutes');
@@ -29,42 +30,51 @@ app.set('views', path.resolve(`${__dirname}/../front-end/views`));
 app.use(express.static(path.resolve(`${__dirname}/../front-end/public`)));
 
 // GLOBAL MIDDLEWERE
-// set secure http headers
-
-//app.use(helmet());
+// implement cors
+app.use(cors());
 app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["'self'", 'data:', 'blob:'],
-
-      baseUri: ["'self'"],
-
-      fontSrc: ["'self'", 'https:', 'data:'],
-
-      scriptSrc: ["'self'", 'https://*.cloudflare.com'],
-
-      scriptSrc: ["'self'", 'https://*.stripe.com'],
-
-      scriptSrc: ["'self'", 'http:', 'https://*.mapbox.com', 'data:'],
-
-      frameSrc: ["'self'", 'https://*.stripe.com'],
-
-      objectSrc: ["'none'"],
-
-      styleSrc: ["'self'", 'https:', 'unsafe-inline'],
-
-      workerSrc: ["'self'", 'data:', 'blob:'],
-
-      childSrc: ["'self'", 'blob:'],
-
-      imgSrc: ["'self'", 'data:', 'blob:'],
-
-      connectSrc: ["'self'", 'blob:', 'https://*.mapbox.com'],
-
-      upgradeInsecureRequests: [],
-    },
+  cors({
+    origin: `https://vast-refuge-16787.herokuapp.com/`,
   })
 );
+app.options('*', cors());
+
+// set secure http headers
+
+app.use(helmet());
+//app.use(
+//  helmet.contentSecurityPolicy({
+//    directives: {
+//      defaultSrc: ["'self'", 'data:', 'blob:'],
+//
+//      baseUri: ["'self'"],
+//
+//      fontSrc: ["'self'", 'https:', 'data:'],
+//
+//      scriptSrc: ["'self'", 'https://*.cloudflare.com'],
+//
+//      scriptSrc: ["'self'", 'https://*.stripe.com'],
+//
+//      scriptSrc: ["'self'", 'http:', 'https://*.mapbox.com', 'data:'],
+//
+//      frameSrc: ["'self'", 'https://*.stripe.com'],
+//
+//      objectSrc: ["'none'"],
+//
+//      styleSrc: ["'self'", 'https:', 'unsafe-inline'],
+//
+//      workerSrc: ["'self'", 'data:', 'blob:'],
+//
+//      childSrc: ["'self'", 'blob:'],
+//
+//      imgSrc: ["'self'", 'data:', 'blob:'],
+//
+//      connectSrc: ["'self'", 'blob:', 'https://*.mapbox.com'],
+//
+//      upgradeInsecureRequests: [],
+//    },
+//  })
+//);
 
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 

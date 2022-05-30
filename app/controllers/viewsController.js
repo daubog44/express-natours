@@ -50,17 +50,11 @@ exports.overView = catchAsync(async function (req, res, next) {
 });
 
 exports.login = catchAsync(async function (req, res, next) {
-  res
-    .status(200)
-    .set(
-      'Content-Security-Policy',
-      "connect-src 'self' https://cdnjs.cloudflare.com"
-    )
-    .render('login', {
-      title: 'Log into your account',
-      protocol: req.protocol,
-      host: req.get('host'),
-    });
+  res.status(200).render('login', {
+    title: 'Log into your account',
+    protocol: req.protocol,
+    host: req.get('host'),
+  });
 });
 
 exports.getAccount = catchAsync(async function (req, res, next) {
