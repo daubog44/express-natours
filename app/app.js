@@ -24,7 +24,7 @@ const AppError = require('./utilitis/appError');
 
 const app = express();
 
-app.use(function (request, response, next) {
+app.all(function (request, response, next) {
   if (process.env.NODE_ENV != 'development' && !request.secure) {
     return response.redirect('https://' + request.headers.host + request.url);
   }
