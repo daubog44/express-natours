@@ -76,7 +76,7 @@ if (results > nPageToDisplay) {
       containerCards.innerHTML = '';
 
       let getData = await fetch(
-        `${protocol}://${host}/api/v1/tours?limit=${nPageToDisplay}&page=${currentPage}`
+        `/api/v1/tours?limit=${nPageToDisplay}&page=${currentPage}`
       );
       let data = await getData.json();
 

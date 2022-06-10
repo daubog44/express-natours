@@ -7,7 +7,7 @@ const token = currentScript.getAttribute('token');
 
 const verify = async function () {
   try {
-    const url = `${protocol}://${host}/api/v1/users/verifyEmail/${token}`;
+    const url = `/api/v1/users/verifyEmail/${token}`;
     let res = await fetch(url, {
       method: 'PATCH',
     });

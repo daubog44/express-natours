@@ -18,8 +18,8 @@ const updateSettings = async function (data, type) {
   try {
     const url =
       type === 'password'
-        ? `${protocol}://${host}/api/v1/users/updateMyPassword`
-        : `${protocol}://${host}/api/v1/users/updateMe`;
+        ? `/api/v1/users/updateMyPassword`
+        : `/api/v1/users/updateMe`;
     data =
       type === 'password'
         ? JSON.stringify({
@@ -49,7 +49,7 @@ const updateSettings = async function (data, type) {
 
 const getMyPhoto = async function (id) {
   try {
-    let res = await fetch(`${protocol}://${host}/api/v1/users/me/${id}`, {
+    let res = await fetch(`/api/v1/users/me/${id}`, {
       method: 'GET',
     });
     let data = await res.json();
@@ -104,8 +104,8 @@ const toggleTwoFactorAuth = async function (toggle, number) {
   try {
     const url =
       toggle === 0
-        ? `${protocol}://${host}/api/v1/users/userRemoveTwoFactorAuthentication`
-        : `${protocol}://${host}/api/v1/users/userActiveTwoFactorAuthentication`;
+        ? `/api/v1/users/userRemoveTwoFactorAuthentication`
+        : `/api/v1/users/userActiveTwoFactorAuthentication`;
     const bodySend =
       toggle === 1
         ? JSON.stringify({ phoneNumber: number.split(' ').join('') })

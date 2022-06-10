@@ -7,12 +7,9 @@ const host = currentScriptJs.getAttribute('host');
 
 const bookTour = async function (id) {
   try {
-    const res = await fetch(
-      `${protocol}://${host}/api/v1/bookings/checkout-session/${id}`,
-      {
-        method: 'GET',
-      }
-    );
+    const res = await fetch(`/api/v1/bookings/checkout-session/${id}`, {
+      method: 'GET',
+    });
     const data = await res.json();
     //console.log(data);
     alertBookingSucces(data);

@@ -41,7 +41,7 @@ const alertLoginSucced = function (data) {
 const login = async function (email, password) {
   //console.log(email, password);
   try {
-    const res = await fetch(`${protocol}://${host}/api/v1/users/login`, {
+    const res = await fetch(`/api/v1/users/login`, {
       method: 'POST',
       body: JSON.stringify({ email: email, password: password }),
       headers: {

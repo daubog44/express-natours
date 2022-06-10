@@ -9,7 +9,7 @@ const host = currentScriptJs.getAttribute('host');
 const logout = async function () {
   try {
     //console.log('helloo');
-    const res = await fetch(`${protocol}://${host}/api/v1/users/logout`, {
+    const res = await fetch(`/api/v1/users/logout`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
