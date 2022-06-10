@@ -30,51 +30,49 @@ app.set('views', path.resolve(`${__dirname}/../front-end/views`));
 app.use(express.static(path.resolve(`${__dirname}/../front-end/public`)));
 
 // GLOBAL MIDDLEWERE
-// implement cors
-app.use(
-  cors({
-    origin: `https://vast-refuge-16787.herokuapp.com/*`,
-  })
-);
-app.use(cors());
-app.options('*', cors());
-
 // set secure http headers
 
+app.use(
+  cors({
+    origin: ['*', 'https://*', 'self'],
+  })
+);
+app.options('*', cors());
+
 app.use(helmet());
-//app.use(
-//  helmet.contentSecurityPolicy({
-//    directives: {
-//      defaultSrc: ["'self'", 'data:', 'blob:'],
-//
-//      baseUri: ["'self'"],
-//
-//      fontSrc: ["'self'", 'https:', 'data:'],
-//
-//      scriptSrc: ["'self'", 'https://*.cloudflare.com'],
-//
-//      scriptSrc: ["'self'", 'https://*.stripe.com'],
-//
-//      scriptSrc: ["'self'", 'http:', 'https://*.mapbox.com', 'data:'],
-//
-//      frameSrc: ["'self'", 'https://*.stripe.com'],
-//
-//      objectSrc: ["'none'"],
-//
-//      styleSrc: ["'self'", 'https:', 'unsafe-inline'],
-//
-//      workerSrc: ["'self'", 'data:', 'blob:'],
-//
-//      childSrc: ["'self'", 'blob:'],
-//
-//      imgSrc: ["'self'", 'data:', 'blob:'],
-//
-//      connectSrc: ["'self'", 'blob:', 'https://*.mapbox.com'],
-//
-//      upgradeInsecureRequests: [],
-//    },
-//  })
-//);
+const scriptSrcUrls = [
+  'https://api.tiles.mapbox.com/',
+  'https://api.mapbox.com/',
+];
+const styleSrcUrls = [
+  'https://api.mapbox.com/',
+  'https://api.tiles.mapbox.com/',
+  'https://fonts.googleapis.com/',
+];
+const connectSrcUrls = [
+  'https://api.mapbox.com/',
+  'https://a.tiles.mapbox.com/',
+  'https://b.tiles.mapbox.com/',
+  'https://events.mapbox.com/',
+];
+const fontSrcUrls = ['fonts.googleapis.com', 'fonts.gstatic.com'];
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ['*'],
+      connectSrc: ["'self'", ...connectSrcUrls],
+      scriptSrc: ["'self'", ...scriptSrcUrls],
+      styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+      workerSrc: ["'self'", 'blob:'],
+      objectSrc: [],
+      imgSrc: ["'self'", 'blob:', 'data:'],
+      fontSrc: ["'self'", ...fontSrcUrls],
+      imgSrc: ["'self'", 'blob:', 'data:', 'https://images.unsplash.com/'],
+    },
+    crossOriginEmbedderPolicy: false,
+    crossOriginResourcePolicy: false,
+  })
+);
 
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 

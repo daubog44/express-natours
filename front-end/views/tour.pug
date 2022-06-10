@@ -19,6 +19,13 @@ mixin reviewCard(review, noReview)
           use(xlink:href='/img/icons.svg#icon-star')
 
 block content
+  
+  script(src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js')
+  link(href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet'  )
+  script(async src="/webPageJs/mapBoxScript.js")
+  script(async type="module" src="/webPageJs/stripe.js" protocol=protocol host=host tour=tour)
+
+
   section.section-header
     .header__hero
       .header__hero-overlay &nbsp;
@@ -95,7 +102,3 @@ block content
           button.btn.btn--green.span-all-rows#book-tour(data-tour-id=`${tour.id}`) Book tour now!
         else 
           a.btn.btn--green.span-all-rows(href="/login") Log in to book tour
-  script(defear src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js' )
-  link(href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet'  )
-  script(defear src="/webPageJs/mapBox.js")
-  script(async type="module" src="/webPageJs/stripe.js" protocol=protocol host=host tour=tour)

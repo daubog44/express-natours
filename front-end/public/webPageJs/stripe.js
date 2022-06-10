@@ -39,3 +39,6 @@ document
     const { tourId } = event.target.dataset;
     await bookTour(tourId);
   });
+
+/*
+  error: You passed an empty string for 'line_items[0][images][0]'. We assume empty values are an attempt to unset a parameter; however 'line_items[0][images][0]' cannot be unset. You should remove 'line_items[0][images][0]' from your request or supply a non-empty value.*/

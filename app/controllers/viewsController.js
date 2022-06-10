@@ -15,12 +15,20 @@ exports.viewTour = catchAsync(async function (req, res, next) {
     return next(new AppError('there is no tour with that name.', 404));
   }
 
-  res.status(200).render('tour', {
-    title: `${tour.name} Tour`,
-    tour,
-    protocol: req.protocol,
-    host: req.get('host'),
-  });
+  res
+    .status(200)
+    .set(
+      'Content-Security-Policy',
+      "default-src 'self' https://*.mapbox.com ;base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src https://cdnjs.cloudflare.com https://api.mapbox.com 'self' blob: ;script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests;"
+    )
+    .set('Cross-Origin-Resource-Policy', 'cross-origin')
+    .set('Cross-Origin-Embedder-Policy', 'credentialless')
+    .render('tour', {
+      title: `${tour.name} Tour`,
+      tour,
+      protocol: req.protocol,
+      host: req.get('host'),
+    });
 });
 
 exports.overView = catchAsync(async function (req, res, next) {
