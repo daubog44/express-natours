@@ -24,13 +24,6 @@ const AppError = require('./utilitis/appError');
 
 const app = express();
 
-app.all(function (request, response, next) {
-  if (process.env.NODE_ENV != 'development' && !request.secure) {
-    return response.redirect('https://' + request.headers.host + request.url);
-  }
-  next();
-});
-
 // web page
 app.set('view engine', 'pug');
 app.set('views', path.resolve(`${__dirname}/../front-end/views`));
