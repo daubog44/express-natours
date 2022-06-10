@@ -24,6 +24,13 @@ const AppError = require('./utilitis/appError');
 
 const app = express();
 
+app.use(function (request, response, next) {
+  if (process.env.NODE_ENV != 'development' && !request.secure) {
+    return response.redirect('https://' + request.headers.host + request.url);
+  }
+  next();
+});
+
 // web page
 app.set('view engine', 'pug');
 app.set('views', path.resolve(`${__dirname}/../front-end/views`));
@@ -37,7 +44,12 @@ app.use(
     origin: ['*', 'https://*', 'self'],
   })
 );
-app.options('*', cors());
+app.options(
+  '*',
+  cors({
+    origin: ['*', 'https://*', 'self'],
+  })
+);
 
 app.use(helmet());
 const scriptSrcUrls = [
